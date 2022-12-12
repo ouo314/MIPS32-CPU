@@ -90,7 +90,15 @@ module openmips (
         .reg1_o(id_reg1_o),
         .reg2_o(id_reg2_o),
         .wd_o(id_wd_o),
-        .wreg_o(id_wreg_o)
+        .wreg_o(id_wreg_o),
+
+        //資料相依解
+        .ex_wreg_i(ex_wreg_o),
+        .ex_wd_i(ex_wd_o),
+        .ex_wdata_i(ex_wdata_o),
+        .mem_wd_i(mem_wd_o),
+        .mem_wreg_i(mem_wreg_o),
+        .mem_wdata_i(mem_wdata_o)
     );
 
     regfile regfile1(
@@ -155,6 +163,7 @@ module openmips (
 
     mem mem0(
         .rst(rst),
+        .clk(clk),
 
         .wd_i(mem_wd_i),
         .wreg_i(mem_wreg_i),

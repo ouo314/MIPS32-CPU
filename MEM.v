@@ -11,7 +11,7 @@ module mem (
     output reg [`RegBus] wdata_o
 );
     
-    always @(posedge clk) begin
+    always @(*) begin
         if(rst==`RstEnable) begin
             wd_o <= `NOPRegAddr;
             wreg_o <= `WriteDisable;
